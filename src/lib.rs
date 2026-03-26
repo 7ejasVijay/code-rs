@@ -22,14 +22,8 @@ enum Expression {
 fn eval(e: Expression) -> i64 {
     match e {
         Expression::Op { op, left, right } => {
-            let left = match *left {
-                Expression::Value(left) => left,
-                _ => eval(*left)
-            };
-            let right = match *right {
-                Expression::Value(right) => right,
-                _ => eval(*right)
-            };
+            let left = eval(*left);
+            let right = eval(*right);
             match op {
                 Operation::Add => left + right,
                 Operation::Sub => left - right,
