@@ -13,11 +13,12 @@ impl CarRace {
         }
     }
 
+    // Exclusive borrowed read-write access to self
     fn add_lap(&mut self, lap: i32) {
         self.laps.push(lap);
     }
 
-    // Exclusive borrowed read-write access to self
+    // Shared and read-only borrowed access to self
     fn print_laps(&self) {
         println!("Recorded {} laps for {}:", self.laps.len(), self.name);
         for (idx, lap) in self.laps.iter().enumerate() {
