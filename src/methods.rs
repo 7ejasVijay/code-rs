@@ -13,6 +13,10 @@ impl CarRace {
         }
     }
 
+    fn add_lap(&mut self, lap: i32) {
+        self.laps.push(lap);
+    }
+
     // Exclusive borrowed read-write access to self
     fn print_laps(&self) {
         println!("Recorded {} laps for {}:", self.laps.len(), self.name);
